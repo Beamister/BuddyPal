@@ -1,5 +1,9 @@
 from google.cloud import pubsub_v1
+import os
 
+
+print("Path:", os.getcwd())
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/buddy/buddypal/buddypal-118be5edd0f1.json"
 topic_name = 'projects/buddypal/topics/BuddyPal'
 
 
