@@ -1,11 +1,15 @@
 from google.cloud import pubsub_v1
+from picamera import PiCamera
 from gpiozero import LED, Buzzer
 from time import sleep
 import os
+import time
+import datetime
 
 ledRed = LED(17)
 ledGreen = LED(18)
 buzzer = Buzzer(27)
+camera = PiCamera()
 
 subscription_path = 'projects/buddypal/subscriptions/BuddyPal-Sub'
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/home/pi/BuddyPal/buddypal-ee7296cbe411.json"
@@ -21,6 +25,8 @@ def check_message(message):
         buildFailed = False
     else:
         buildFailed = True
+        timestamp = datetime.datetime.now().strftime('%d/%m/%Y-%H:%M:%S')
+        camera.capture('/home/pi/BuddyPal/' + timestamp + '.jpg')
     message.ack()
 
 
