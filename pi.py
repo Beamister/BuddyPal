@@ -1,10 +1,19 @@
-from gpiozero import LED
+from gpiozero import LED, Buzzer
 from time import sleep
 
-led = LED(17)
+ledRed = LED(17)
+ledGreen = LED(18)
+buzzer = Buzzer(27)
 
-while True:
-    led.on()
+buildFailed = False
+
+while buildFailed:
+    ledRed.on()
+    buzzer.on()
     sleep(1)
-    led.off()
+    ledRed.off()
+    buzzer.off()
     sleep(1)
+
+while not buildFailed:
+    ledGreen.on()
