@@ -3,7 +3,6 @@ from picamera import PiCamera
 from gpiozero import LED, Buzzer
 from time import sleep
 import os
-import time
 import datetime
 
 ledRed = LED(17)
