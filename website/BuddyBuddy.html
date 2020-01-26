@@ -100,13 +100,27 @@
     text-align: center;
   }
 </style>
-<body class="w3-light-grey">
+<div class="w3-light-grey">
   <div class="title">
     <h1>BuddyBuddy</h1>
   </div>
-
+</div>
   <!-- The four columns -->
   <div class="row">
+    <h1>The project</h1>
+    <div class="column">
+      <img src="images/IMG_0504.jpg"
+           style="width:100%"
+           onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="images/IMG_0503.jpg"
+           style="width:100%"
+           onclick="myFunction(this);">
+    </div>
+  </div>
+  <div class="row">
+    <h1>Our camera</h1>
     <div class="column">
       <img src="images/adela.jpg"
            style="width:100%"
@@ -115,11 +129,6 @@
     <div class="column">
       <img src="images/cata.jpg"
            style="width:100%"
-           onclick="myFunction(this);">
-    </div>
-    <div class="column">
-      <img src="images/IMG_0503.jpg"
-           style="width:42%"
            onclick="myFunction(this);">
     </div>
   </div>
@@ -131,7 +140,6 @@
     <img id="expandedImg" style="width:100%">
     <div id="imgtext"></div>
   </div>
-
   <div class="footer">
     <a href=https://github.com/Beamister/BuddyPal>
       <strong>BuddyBuddy</strong>
@@ -140,13 +148,12 @@
 
   <script>
   function myFunction(imgs) {
-    var expandImg = document.getElementById("expandedImg");
-    var imgText = document.getElementById("imgtext");
+    let expandImg = document.getElementById("expandedImg");
+    let imgText = document.getElementById("imgtext");
     expandImg.src = imgs.src;
     imgText.innerHTML = imgs.alt;
     expandImg.parentElement.style.display = "block";
   }
   </script>
-
 </body>
 </html>
