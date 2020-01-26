@@ -24,8 +24,9 @@ def check_message(message):
         buildFailed = False
     else:
         buildFailed = True
-        timestamp = datetime.datetime.now().strftime('%d/%m/%Y-%H:%M:%S')
-        camera.capture('/home/pi/BuddyPal/' + timestamp + '.jpg')
+        timestamp = datetime.datetime.now().strftime('%d:%m:%Y-%H:%M:%S')
+        camera.capture('/home/pi/BuddyPal/images/' + timestamp + '.jpg')
+        print("Image captured")
     message.ack()
 
 
@@ -34,6 +35,7 @@ future = subscriber.subscribe(subscription_path, check_message)
 
 while True:
     if buildFailed:
+        ledGreen.off()
         ledRed.on()
         buzzer.on()
         sleep(1)
@@ -42,4 +44,6 @@ while True:
         sleep(1)
 
     else:
+        ledRed.off()
+        buzzer.off()
         ledGreen.on()
