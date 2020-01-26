@@ -22,8 +22,10 @@ def check_message(message):
     message_contents = message.data.decode()
     if message_contents == 'Passed':
         buildFailed = False
+        print("Build failed")
     else:
         buildFailed = True
+        print("Build true")
         timestamp = datetime.datetime.now().strftime('%d:%m:%Y-%H:%M:%S')
         camera.capture('/home/pi/BuddyPal/images/' + timestamp + '.jpg')
         print("Image captured")
