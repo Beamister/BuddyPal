@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<title>BuddyBuddy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+  body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    /**
+   * Demo Styles
+   */
+
+  html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .title {
+    margin: 0 auto;
+    padding-top: 64px;
+    max-width: 640px;
+    width: 94%;
+  }
+
+  .title h1 {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+  }
+    /* The grid: Four equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+  }
+
+  /* Style the images inside the grid */
+  .column img {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  .column img:hover {
+    opacity: 1;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* The expanding image container */
+  .container {
+    position: relative;
+    display: none;
+  }
+
+  /* Expanding image text */
+  #imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+  }
+
+  /* Closable button inside the expanded image */
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+  }
+  .footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+  }
+</style>
+<body class="w3-light-grey">
+  <div class="title">
+    <h1>BuddyBuddy</h1>
+  </div>
+
+  <!-- The four columns -->
+  <div class="row">
+    <div class="column">
+      <img src="images/adela.jpg"
+           style="width:100%"
+           onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="images/cata.jpg"
+           style="width:100%"
+           onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="images/IMG_0503.jpg"
+           style="width:42%"
+           onclick="myFunction(this);">
+    </div>
+  </div>
+
+  <div class="container">
+    <span onclick="this.parentElement.style.display='none'"
+          class="closebtn">&times;
+    </span>
+    <img id="expandedImg" style="width:100%">
+    <div id="imgtext"></div>
+  </div>
+
+  <div class="footer">
+    <a href=https://github.com/Beamister/BuddyPal>
+      <strong>BuddyBuddy</strong>
+    </a>
+  </div>
+
+  <script>
+  function myFunction(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+  }
+  </script>
+
+</body>
+</html>
